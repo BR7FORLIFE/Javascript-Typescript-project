@@ -1,0 +1,100 @@
+ :root {
+     background-color: #eee;
+     box-sizing: border-box;
+ }
+
+ html,
+ body {
+     display: grid;
+     place-content: center;
+     width: 100%;
+     height: 100%;
+ }
+
+ .container {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+ }
+
+ .layout {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+     width: 600px;
+     height: 300px;
+     background-color: #276bca;
+     border-width: 3px;
+     border-color: #ffffff;
+     border-radius: 12px;
+ }
+
+ .title {
+     color: white;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     font-weight: 700;
+     font-size: 50px;
+     text-align: center;
+     text-shadow: 6px 3px gray;
+ }
+
+
+ .title.animation {
+     animation: moveToTopLeft 2s ease-in forwards;
+ }
+
+ .input {
+     width: 250px;
+     height: 30px;
+     border-width: 2px;
+     border-color: #ffffff;
+     border-radius: 12px;
+ }
+
+ .button {
+     margin-top: 20px;
+     color: white;
+     background-color: #ff0000;
+     width: 150px;
+     height: 30px;
+     border-width: 3px;
+     border-radius: 6px;
+     border-color: white;
+ }
+
+ .button:hover {
+     background-color: #d30505;
+ }
+
+ .task {
+     width: 600px;
+     height: 300px;
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+     text-decoration: none;
+     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+     font-size: 20px;
+     font-weight: 700;
+     text-align: center;
+     background-color: red;
+     margin-top: 20px;
+     box-shadow: 10px 10px 4px #f05959;
+     color: white;
+ }
+
+ .task>.div {
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     align-items: center;
+     width: 600px;
+     height: 300px;
+ }
+
+ .task ul li {
+     list-style: none;
+ }
