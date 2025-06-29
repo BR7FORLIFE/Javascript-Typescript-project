@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+
+    <style>
+      * {
+        background-color: #eee;
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100%;
+        height: 100dvh;
+        display: grid;
+        place-content: center;
+      }
+
+      #container {
+        zoom: 0.8;
+        width: 600px;
+        height: 600px;
+        border: 2px solid white;
+      }
+
+      #canvas {
+        width: 600px;
+        height: 600px;
+        background-color: black;
+        box-shadow: 0 12px 15px rgba(0, 0, 0, 0.5);
+      }
+    </style>
+
+    <script type="module">
+      const $container = document.getElementById("container");
+      const $canvas = document.getElementById("canvas");
+      const ctx = $canvas.getContext("2d"); // contexto de 2d
+
+      //atributies for canvas
+      const canvasWidth = $canvas.width;
+      const canvasHeight = $canvas.height;
+
+      //atributies for paddle
+      let widthPaddle = 90;
+      let heightPaddle = 10;
+      let speedX = 3;
+      let posInitialX = (canvasWidth - widthPaddle) / 2;
+      let posinitialY = canvasHeight - 40;
+
+      //atributies for ball
+      const radiusBall = 5;
+      let posxBall = (canvasWidth - radiusBall) / 2 + 200;
+      let posyBall = canvasHeight - 400;
+      let differentialPosx = 2;
+      let differentialPosy = 2;
+
+      //atributies for movements paddle
+      let leftButtonPressed = false;
+      let rightButtonPressed = false;
+
+      //atributies for movements ball
+
+      //movements for paddles and addeventListener!
+      function movePaddle() {
+        document.addEventListener("keyup", upHandler, false);
+        document.addEventListener("keydown", downHandler, false);
+      }
+
+      //funtions for paddle
+      function upHandler(event) {
+        if (event.keyCode === 37) {
+          leftButtonPressed = false;
+        } else if (event.keyCode === 39) {
+          rightButtonPressed = false;
+        }
+      }
+
+      function downHandler(event) {
+        if (event.keyCode === 37) {
+          leftButtonPressed = true;
+        } else if (event.keyCode === 39) {
+          rightButtonPressed = true;
+        }
+      }
+
+      function movementPadle() {
+        if (leftButtonPressed && posInitialX > 0) {
+          posInitialX -= speedX;
+        } else if (
+          rightButtonPressed &&
+          posInitialX < canvasWidth - widthPaddle
+        ) {
+          posInitialX += speedX;
+        }
+      }
+
+      function drawPaddle() {
+        ctx.beginPath();
+        ctx.fillStyle = "red";
+        ctx.fillRect(posInitialX, posinitialY, widthPaddle, heightPaddle);
+        ctx.closePath();
+      }
+
+      function moveBall() {
+        posxBall += differentialPosx;
+        posyBall += differentialPosy;
+        detectCollision();
+      }
+
+      function detectCollision() {
+        //collision left and right
+        if (posxBall + radiusBall > canvasWidth || posxBall - radiusBall < 0) {
+          differentialPosx *= -1;
+        }
+
+        //collision to top of canvas
+        if (posyBall - radiusBall < 0) {
+          differentialPosy *= -1;
+        }
+
+        //collision with the paddle
+
+        if (
+          posyBall + radiusBall > posinitialY &&
+          posxBall > posInitialX &&
+          posxBall < posInitialX + widthPaddle
+        ) {
+          differentialPosy = -differentialPosy
+        }
+      }
+
+      function detectCollisionBall() {}
+
+      //funtion for ball
+      function drawBall() {
+        ctx.beginPath();
+        ctx.arc(posxBall, posyBall, radiusBall, 0, 2 * Math.PI);
+        ctx.fillStyle = "yellow";
+        ctx.fill();
+        ctx.closePath();
+      }
+
+      function playGame() {
+        ctx.clearRect(0, 0, canvasWidth, canvasHeight);
+        drawPaddle();
+        drawBall();
+        moveBall();
+        movePaddle();
+        movementPadle();
+        requestAnimationFrame(playGame);
+      }
+
+      playGame();
+    </script>
+  </head>
+  <body>
+    <div id="container">
+      <canvas id="canvas" width="600" height="600"></canvas>
+    </div>
+  </body>
+</html>
