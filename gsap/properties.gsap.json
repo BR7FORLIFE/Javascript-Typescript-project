@@ -1,0 +1,49 @@
+{
+  "animatableProperties": {
+    "position": ["x", "y", "translateX", "translateY", "top", "left", "right", "bottom"],
+    "transform": ["scale", "scaleX", "scaleY", "rotation", "rotate", "skewX", "skewY", "transformOrigin"],
+    "opacity": ["opacity", "autoAlpha"],
+    "size": ["width", "height"],
+    "color": ["color", "backgroundColor", "borderColor", "fill", "stroke"],
+    "border": ["borderRadius", "borderWidth"],
+    "filters": ["blur", "brightness", "contrast", "grayscale", "hue", "invert", "saturate", "sepia"]
+  },
+  "timing": {
+    "duration": "Number (in seconds)",
+    "delay": "Number (in seconds)",
+    "repeat": "Number (0 = no repeat)",
+    "repeatDelay": "Number (delay between repeats)",
+    "yoyo": "Boolean (go back to original state after repeat)",
+    "paused": "Boolean (start paused)",
+    "startAt": "Object (defines initial state before animation starts)"
+  },
+  "easing": {
+    "ease": [
+      "power0", "power1", "power2", "power3", "power4",
+      "back", "elastic", "bounce", "rough", "expo", "sine", "circ", "linear"
+    ]
+  },
+  "callbacks": {
+    "onStart": "Function",
+    "onUpdate": "Function",
+    "onComplete": "Function",
+    "onRepeat": "Function",
+    "onReverseComplete": "Function"
+  },
+  "special": {
+    "stagger": "Number | Object (adds delay between elements)",
+    "autoAlpha": "Number (like opacity but sets visibility)",
+    "immediateRender": "Boolean (used mostly with .from)",
+    "motionPath": "Object (for path animations)",
+    "clearProps": "String | Array (remove inline styles after animation)",
+    "overwrite": "Boolean | String (controls overwriting conflicting tweens)"
+  },
+  "gsapMethods": {
+    "to": "gsap.to(target, vars)",
+    "from": "gsap.from(target, vars)",
+    "fromTo": "gsap.fromTo(target, fromVars, toVars)",
+    "set": "gsap.set(target, vars)",
+    "killTweensOf": "gsap.killTweensOf(target)",
+    "timeline": "gsap.timeline(vars)"
+  }
+}

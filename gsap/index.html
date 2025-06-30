@@ -1,11 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GSAP - Practice</title>
-</head>
-<body>
-    
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <style>
+      .active {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body class="w-screen h-screen grid place-content-center bg-white text-black">
+    <section id="agg" class="w-[600px] h-auto bg-blue-200"></section>
+    <button
+      id="button"
+      class="w-40 h-16 mt-12 bg-cyan-400 p-3 rounded hover:bg-cyan-600"
+    >
+      agregar nuevo div
+    </button>
+
+    <script type="module">
+        const $section = document.getElementById("agg");
+        const $button = document.getElementById("button");
+
+        $button.addEventListener("click", () => {
+          const $div = document.createElement("div");
+          $div.className = "active";
+          $section.appendChild($div);
+
+          gsap.to($div, { x: 200, repeat: -1, yoyo: true });
+        });
+    </script>
+  </body>
 </html>
