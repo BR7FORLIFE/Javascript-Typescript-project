@@ -24,6 +24,7 @@ function calculeImc(weight: number , height: number): number {
     return weight / height ** 2;
 }
 
+
 function generateInfo(result: number): void {
     const infoContainer  = document.querySelector("#information") as HTMLDivElement
     infoContainer.innerHTML = ""
