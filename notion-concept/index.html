@@ -196,14 +196,16 @@
               </button>
             </div>
           </section>
-          <div id="insertContent"></div>
+          <div id="insertContent" class="mt-5">
+            <span class="text-black font-mono font-semibold" id="month">February <span id="year">2025</span></span>
+          </div>
         </article>
       </main>
     </section>
 
     <template id="week-template">
       <table
-        class="w-full h-60 mt-4 border-2 border-black border-separate border-spacing-2"
+        class="w-full h-72 mt-4 border-2 border-black border-separate border-spacing-2"
       >
         <caption class="caption-top text-black/60 font-mono font-semibold">
           Schedule
@@ -211,9 +213,11 @@
 
         <colgroup></colgroup>
 
-        <thead></thead>
+        <thead class="text-black/60"></thead>
 
-        <tbody></tbody>
+        <tbody>
+
+        </tbody>
 
         <tfoot></tfoot>
       </table>
