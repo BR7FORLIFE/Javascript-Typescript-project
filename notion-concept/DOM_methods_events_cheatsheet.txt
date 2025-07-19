@@ -1,0 +1,108 @@
+
+==========================
+📌 DOM METHODS & PROPERTIES
+==========================
+
+--- SELECCIÓN DE ELEMENTOS ---
+- document.getElementById(id) -- [x] recupera por id un elemento
+- document.getElementsByClassName(class)[x] recupera por clase util para DOM dinamico
+- document.getElementsByTagName(tag) [x] recupera por nombre de la etiqueta ejemplo, div, title
+- document.querySelector(selector) --[x] recupera el elemento con id o class
+- document.querySelectorAll(selector)[x] recupera una lista de elementos
+
+--- MANIPULACIÓN DE CONTENIDO ---
+- element.textContent [x] reemplaza o elimina contenido de una etiqueta aun si esta oculto
+- element.innerText [x] reemplaza texto visible , respeta estilos css, renderizado en el navegador
+- element.innerHTML [x] agrega html a una etiqueta, quita contenido para el nuevo contenido html
+- element.outerHTML [x] lo mismo que innerHtml pero reemplaza el padre o el nodo entero
+
+--- ATRIBUTOS ---
+- element.getAttribute(name) [x] obtiene el valor de un atributo de una tag html (class, aria-*)
+- element.setAttribute(name, value) [x] establece el valor de un atributo ("href", "https://*")
+- element.hasAttribute(name) [x] devuelve un booleano si una tag html posee un atributo
+- element.removeAttribute(name) [x] remueve el atributo entero de un tag html
+
+--- ESTILOS Y CLASES ---
+- element.style.property [x] abarcan todos los metodos de estilos css (width, height, color, font)
+- element.classList.add(clase) [x] agrega clases a un elemento html
+- element.classList.remove(clase) [x] quita una clase de un elemento html
+- element.classList.toggle(clase) [x] quita la clase si existe y la añade si no existe
+- element.classList.contains(clase) [x] devuelve un boolean si existe la clase en el tag
+
+--- EVENTOS ---
+- element.addEventListener(event, callback) [x] eventos de una etiqueta html
+- element.removeEventListener(event, callback) [x] elimina un evento de una tag, debe coincidir las funciones , eventos, opciones para desuscribirse del evento
+
+--- CREACIÓN Y MODIFICACIÓN DEL DOM ---
+- document.createElement(tag) [x] crea un elemento html div, p , span, ...
+- document.createTextNode(text) [x] crear un nodo con texto puro sin tag html (texto puro)
+- parent.appendChild(child) [x] agrega un nodo a un elemento padre
+- parent.insertBefore(newNode, referenceNode)[x] Inserta newNode antes de referenceNode, dentro de parentNode (inserta en un nodo padre un elemento antes de otro nodo hijo que le digas)
+- element.remove() [x] elimina un nodo del DOM
+- parent.removeChild(child) [x] elimina un hijo de un elemento padre
+- element.replaceWith(newNode) [x] reemplaza un nodo por otro
+- element.insertAdjacentHTML('beforeend', '<button>Click</button>') [x] inserta HTML en una posicion especifica respecto a un elemento 
+
+    * beforebegin: antes del propio elemento
+    * afterbegin: dentro del elemento, al inicio 
+    * beforeend: dentro del elemento, al final
+    * afterend: despues del elemento
+
+--- FORMULARIOS E INPUTS ---
+- input.value [x] recupera el valor de un input
+- input.checked [x] devuelve true or false si un input de tipo (check, radio) estan activo
+- form.elements [x] Es una propiedad del objeto HTMLFormElement, que te permite acceder a los campos del formulario por nombre o por índice. (etiqueta name o indices)
+
+- form.submit()
+- form.reset()
+
+--- DIMENSIONES Y POSICIÓN ---
+- element.offsetWidth
+- element.offsetHeight
+- element.clientWidth
+- element.getBoundingClientRect()
+
+--- RECORRIDOS Y RELACIONES DOM ---
+- element.parentNode
+- element.children
+- element.firstElementChild
+- element.lastElementChild
+- element.nextElementSibling
+- element.previousElementSibling
+
+===================
+🎯 EVENTOS COMUNES
+===================
+- click
+- dblclick
+- mouseenter
+- mouseleave
+- mousedown
+- mouseup
+- mousemove
+- keydown
+- keyup
+- keypress
+- input
+- change
+- submit
+- focus
+- blur
+- resize
+- scroll
+- contextmenu
+
+=================================
+🧠 OBJETO EVENTO (e) - PROPIEDADES
+=================================
+- e.target          -> Elemento que disparó el evento
+- e.currentTarget   -> Elemento que escucha el evento
+- e.preventDefault() -> Previene el comportamiento por defecto
+- e.stopPropagation() -> Evita la propagación del evento
+- e.key             -> Tecla presionada (en eventos de teclado)
+- e.code            -> Código físico de la tecla
+- e.clientX, e.clientY -> Posición del mouse en la ventana
+- e.pageX, e.pageY  -> Posición del mouse en la página
+- e.type            -> Tipo de evento
+- e.timeStamp       -> Marca de tiempo del evento
+
