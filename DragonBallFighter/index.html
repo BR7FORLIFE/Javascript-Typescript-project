@@ -1,27 +1,53 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dragon Ball Fighter</title>
 
     <style>
-
-      body{
+      body {
         width: 100dvw;
         height: 100dvh;
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        display: grid;
-        place-content: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: center;
+        background-image: url("background-fighter.jpg");
+        background-repeat: no-repeat;
+        background-size: cover;
+        position: relative;
       }
 
+      .wheel {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        height: auto;
+        position: relative;
+        background: rgba(4, 163, 255, 0);
+      }
+
+      .characters{
+        width: 200px;
+        height: auto;
+        position: absolute;
+      }
     </style>
   </head>
   <body>
-    <div id="app"></div>
+    <section class="container">
+      <article class="wheel"></article>
+      
+      <section>
+        
+
+      </section>
+    </section>
+
     <script type="module" src="/src/main.js"></script>
   </body>
 </html>

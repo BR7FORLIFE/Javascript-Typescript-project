@@ -5,3 +5,4 @@ node_module/*
 .idea
 idea/
 package-lock.json
+node_module/
