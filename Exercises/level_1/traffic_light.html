@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 1 - Traffic Lights</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+        margin-top: 20px;
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        background-color: gray;
+        transition: background-color 0.3s;
+      }
+
+      .red {
+        background-color: red;
+      }
+      .yellow {
+        background-color: yellow;
+      }
+      .green {
+        background-color: green;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+
+    <script>
+      const $$divs = document.querySelectorAll("div");
+      const colors = ["red", "yellow", "green"];
+
+      let id = 0;
+      const TIME = 1000;
+
+      setInterval(() => {
+        $$divs.forEach(div => div.className = "");
+
+        $$divs[id].classList.add(colors[id]);
+
+        id++;
+        if (id > 2) id = 0;
+      }, TIME);
+    </script>
+  </body>
+</html>

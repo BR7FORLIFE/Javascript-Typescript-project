@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Level 1 - Intelligent Counter</title>
+
+    <style>
+      .primo {
+        color: red;
+      }
+
+      .multiplo {
+        color: blue;
+      }
+    </style>
+  </head>
+  <body>
+    <span>0</span>
+    <button>Incrementar</button>
+
+    <script>
+      const $span = document.querySelector("span");
+      const $button = document.querySelector("button");
+      let INITIAL_VALUE = 0;
+
+      function esPrimo(n) {
+        if (n < 2) return false;
+        for (let i = 2; i <= Math.sqrt(n); i++) {
+          if (n % i === 0) return false;
+        }
+        return true;
+      }
+
+      function updateNumber() {
+        INITIAL_VALUE++;
+        $span.textContent = INITIAL_VALUE;
+
+        $span.classList.remove("primo", "multiplo");
+
+        if (esPrimo(INITIAL_VALUE)) {
+          $span.classList.add("primo");
+        }
+        
+        if (INITIAL_VALUE % 5 === 0) {
+          $span.classList.add("multiplo");
+        }
+      }
+
+      $button.addEventListener("click", updateNumber);
+    </script>
+  </body>
+</html>
