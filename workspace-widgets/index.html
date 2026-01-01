@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Workspace Vanilla JS</title>
+  <style>
+
+    body {
+      margin: 0;
+      font-family: sans-serif;
+    }
+
+    #workspace {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      background: #f0f0f0;
+      overflow: hidden;
+    }
+
+    .widget {
+      position: absolute;
+      width: 150px;
+      height: 150px;
+      background: steelblue;
+      color: white;
+      padding: 10px;
+      cursor: grab;
+      user-select: none;
+      border-radius: 6px;
+    }
+
+    .widget:active {
+      cursor: grabbing;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="workspace">
+    <div class="widget" style="left: 50px; top: 50px;">Widget 1</div>
+    <div class="widget" style="left: 250px; top: 80px;">Widget 2</div>
+  </div>
+
+  <script>
+    const widgets = document.querySelectorAll(".widget");
+
+    widgets.forEach(widget => {
+      let offsetX = 0;
+      let offsetY = 0;
+      let dragging = false;
+
+      widget.addEventListener("mousedown", (e) => {
+        dragging = true;
+
+        offsetX = e.clientX - widget.offsetLeft;
+        offsetY = e.clientY - widget.offsetTop;
+
+        widget.style.zIndex = 1000;
+      });
+
+      document.addEventListener("mousemove", (e) => {
+        if (!dragging) return;
+
+        widget.style.left = e.clientX - offsetX + "px";
+        widget.style.top  = e.clientY - offsetY + "px";
+      });
+
+      document.addEventListener("mouseup", () => {
+        dragging = false;
+        widget.style.zIndex = 1;
+      });
+    });
+  </script>
+
+</body>
+</html>
