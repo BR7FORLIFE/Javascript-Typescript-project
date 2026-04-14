@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gsap Fundamentals</title>
+    <style>
+      :root {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        width: 100dvw;
+        height: 100dvh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px;
+      }
+
+      div {
+        width: 250px;
+        height: 250px;
+      }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+
+    <script type="module">
+      const colors = ["red", "green", "blue"];
+      const $body = document.querySelector("body");
+
+      const divs = Array.from({ length: 3 }).forEach((_, i) => {
+        const $div = document.createElement("div");
+        $div.classList.add(i);
+        $div.style.backgroundColor = colors[Math.floor(Math.random() * 3)];
+        $body.appendChild($div);
+      });
+
+      gsap.to("1", { rotation: 50, x: 100, duration: 3 });
+    </script>
+  </head>
+  <body></body>
+</html>
