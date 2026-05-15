@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>01-drunk-kit</title>
+    <script type="module" src="/src/main.ts"></script>
+    <style>
+      body {
+        width: 100dvw;
+        height: 100dvh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        position: relative;
+      }
+
+      h1 {
+        font-weight: 200;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      #drop-zone {
+        width: 250px;
+        height: 250px;
+        border: 1px solid black;
+        border-radius: 12px;
+        color: black;
+        text-align: center;
+        font-size: 12px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .drop-active {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.4);
+        backdrop-filter: blur(8px);
+        z-index: 999;
+        justify-content: center;
+        align-items: center;
+        font-size: 3rem;
+        font-weight: bold;
+        pointer-events: none;
+      }
+
+      .drop-active.visible {
+        display: flex;
+      }
+
+      #rack {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        padding: 40px;
+        background: #1a1a1a;
+        border-radius: 15px;
+        border: 2px solid #333;
+        box-shadow:
+          inset 0 0 20px #000,
+          0 10px 30px rgba(0, 0, 0, 0.5);
+        width: fit-content;
+        margin: 20px auto;
+      }
+
+      .rack-control {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 60px;
+        width: 80px;
+      }
+
+      input[type="range"] {
+        -webkit-appearance: none;
+        appearance: none;
+        background: transparent;
+        cursor: pointer;
+        width: 150px; 
+        transform: rotate(-90deg);
+        margin: 40px 0; 
+      }
+
+      input[type="range"]::-webkit-slider-runnable-track {
+        background: #000;
+        height: 6px;
+        border-radius: 3px;
+        border: 1px solid #444;
+      }
+
+      input[type="range"]::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        height: 30px;
+        width: 15px;
+        background: #e6e6e6;
+        border-radius: 2px;
+        margin-top: -13px; 
+        background: linear-gradient(to right, #666 0%, #fff 50%, #666 100%);
+        box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+        border: 1px solid #222;
+      }
+
+      .rack-title {
+        color: #00ffcc;
+        font-family: "Courier New", Courier, monospace;
+        font-size: 0.8rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <div id="drag-overlay" class="drop-active">¡SUÉLTALO AQUÍ!</div>
+      <h1>Audio Transformer</h1>
+      <div id="drop-zone">Arrastra tu archivo de musica aqui!</div>
+    </main>
+
+    <template id="rack-template">
+      <section id="rack">
+        <div class="rack-control">
+          <input type="range" min="0" max="1" step="0.01" value="0.5" />
+          <span class="rack-title">Volume</span>
+        </div>
+
+        <div class="rack-control">
+          <input type="range" min="0.5" max="5" step="0.1" value="1" />
+          <span class="rack-title">Playback Rate</span>
+        </div>
+      </section>
+    </template>
+  </body>
+</html>
